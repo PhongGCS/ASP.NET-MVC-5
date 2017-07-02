@@ -1,0 +1,19 @@
+﻿
+@if (Session["TaiKhoan"] == null)
+{
+    <li id="dangky"><a href="@Url.Action("DangKy","NguoiDung")">Đăng Ký</a></li>
+    <li id="dangnhap"><a href="@Url.Action("DangNhap","NguoiDung")">Đăng Nhập</a></li>
+    <li><a href="@Url.Action("GioHang","GioHang")">Giỏ Hàng: <span class="btn btn-info">@Html.Action("GioHangPartial", "GioHang")</span> </a></li>
+
+}
+else
+{
+
+
+
+        <li><a href="#">Chào @Session["TenKH"] </a></li>
+        <li ><a href="@Url.Action("EditInfo","NguoiDung")">Chỉnh sửa thông tin</a></li>
+        <li ><a href="@Url.Action("DangXuat","NguoiDung")">Đăng xuất</a></li>
+        <li><a href="@Url.Action("GioHang","GioHang")">Giỏ Hàng<span class="btn btn-info">@Html.Action("GioHangPartial", "GioHang")</span> </a></li>
+
+}

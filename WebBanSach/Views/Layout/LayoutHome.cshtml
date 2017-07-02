@@ -1,0 +1,178 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+
+    
+    
+    <link href="~/Content/home.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link href="~/NivoSlider/nivo-slider.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/tether.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/NivoSlider/jquery.nivo.slider.js"></script>
+    <script src="~/NivoSlider/jquery.nivo.slider.pack.js"></script>
+    <!-- <link href="~/Content/style.css" rel="stylesheet" />-->
+   
+ 
+</head>
+<body>
+    <!------------------------Header------------------------->
+    <header>
+        <a href="@Url.Action("Index","Home")" id="logo">
+            <h1>BookHouse</h1>
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="@Url.Action("Index","Home")" class="selected">Trang Chủ</a> </li>
+                    @Html.Partial("~/Views/Layout/LoginView.cshtml") 
+                <li>
+
+                    <form class="form-inline my-2 my-lg-0" action="@Url.Action("KetQuaTimKiem", "TimKiem")" method="post">
+                        <input class="form-control mr-sm-2" name="keyword" type="text" placeholder="Search">
+                        <button class="btn btn-outline-info bg-info text-white my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+
+    </header>    
+   <!------------------------/Header------------------------->
+
+  
+    <!------------------------Main-ConTainer------------------------->
+    <section class="wrap">
+
+        <div class="container-fluid">
+
+            <!----------Dang Muc San Pham-->
+            <div class="sidebar my-5">
+                
+                <ul class="list-group">
+                    <li class="list-group-item active">Danh Mục Sách</li>
+                    @Html.Action("ChuDePartial", "ChuDe")
+                    
+                    <li class="list-group-item">Sách Học Làm Giàu</li>
+                </ul>
+            </div>
+            <!----------/Dang Muc San Pham-->
+            <!-----Slider and San Pham RenderBody------>
+            <div class="main-contain my-5">
+                <!---Slider---->
+                <div class="Slide1">
+
+                    <div id="slider" class="nivoSlider">
+                        <img src="~/HinhAnh/1.jpg" />
+                        <img src="~/HinhAnh/2.jpg" />
+                        <img src="~/HinhAnh/3.jpg" />
+                        <img src="~/HinhAnh/4.png" />
+                        <img src="~/HinhAnh/5.jpg" />
+                        <img src="~/HinhAnh/6.jpg" />
+                    </div>
+                 
+                </div> <!----/Slide---->
+                <!---UuDai--->
+                <div class="UuDai">
+
+                    <img class="mw-100 " src="../HinhAnh/11.jpg" />
+                    <img class="mw-100 " src="../HinhAnh/22.jpg" />
+
+                </div><!----/UuDai--->
+            
+                <!---Khuyen Khich---->
+                <div class="KhuyenKhich" style="clear:both;">
+
+
+                    <div class="item-khuyenkhich">
+                        <a href="/sach-truyen-tieng-viet" title="Sách Tiếng Việt"><img src="https://vcdn.tikicdn.com/assets/media/book-home/bh-banner-6.png" alt="Sách Tiếng Việt"></a>
+                    </div>
+                    <div class="item-khuyenkhich">
+                        <a href="/sach-tieng-anh" title="Sách Tiếng Anh"><img src="https://vcdn.tikicdn.com/assets/media/book-home/bh-banner-7.png" alt="Sách Tiếng Anh"></a>
+                    </div>
+                    <div class="item-khuyenkhich">
+                        <a href="/thiet-bi-van-phong-pham" title="Văn Phòng Phẩm"><img src="https://vcdn.tikicdn.com/assets/media/book-home/bh-banner-8.png" alt="Văn Phòng Phẩm"></a>
+                    </div>
+                    <div class="item-khuyenkhich">
+                        <a href="/qua-luu-niem" title="Quà Lưu Niệm"><img src="https://vcdn.tikicdn.com/assets/media/book-home/bh-banner-9.jpg" alt="Quà Lưu Niệm"></a>
+                    </div>
+                    <div class="item-khuyenkhich">
+                        <a href="/ebook/c5290" title="Ebook"><img src="https://vcdn.tikicdn.com/assets/media/book-home/bh-banner-10.png" alt="Ebook"></a>
+                    </div>
+                    <div class="item-khuyenkhich">
+                        <a href="/sach-truyen-tieng-viet/c316?order=discount_percent,desc" title="Giá tốt mỗi ngày"><img src="https://vcdn.tikicdn.com/assets/media/book-home/bh-banner-11.jpg" alt="Giá tốt mỗi ngày"></a>
+                    </div><!---/Khuyen Khich---->
+
+
+                </div>
+
+
+                <!------Render@@@@@@------->
+                <div class="main-product renderbody" style="clear:both;">
+
+
+                    
+
+                                    @RenderBody()
+                              
+                 
+                </div><!----/Main-Product----->
+
+
+
+               
+            
+        </div><!----/Container---->
+    </div>
+    </section>
+    <!------------------------/Main-ConTainer------------------------->
+    
+    
+    
+
+    <footer id="footer" class="container-fluid" style="clear:both; background-color: rgba(0, 100, 0, 0.73);">
+
+
+        <!-- FOOTER 1 -->
+        <div class="footer-widgets footer footer-1" >
+            <div class="row dark large-columns-4 mb-0">
+                <div id="text-2" style="width: 50%;float: left;">
+                    <h3 class="widget-title">CÔNG TY BookHouse</h3><div class="is-divider small"></div>			<div class="textwidget">
+                        <p><i class="fa fa-map-marker"></i> Địa chỉ: 179 Đường D1, Phường 25, Quận Bình Thạnh, TP.HCM</p>
+                        <p><i class="fa fa-phone"></i> Hotline: 0919.898.999 - 08.8899.8866 - 0862.979.383</p>
+                        <p><i class="fa fa-envelope"></i> Email: dokhacphong96@gmail.com</p>
+                        <p><i class="fa fa-globe"></i> Website: <a href="http://bookhouse.com">BookHouse</a></p>
+                    </div>
+                </div>		
+            <div id="text-3" class="col pb-0 widget widget_text">
+                    <h3 class="widget-title">Fanpage</h3><div class="is-divider small"></div>			<div class="textwidget">
+                <div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/115376195648287/" data-tabs="messages" data-height="250" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=355627444798303&amp;container_width=240&amp;height=250&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2F115376195648287%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;small_header=true&amp;tabs=messages"><span style="vertical-align: bottom; width: 240px; height: 250px;"><iframe name="f215890d53260d4" width="1000" height="250" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:page Facebook Social Plugin" src="https://www.facebook.com/v2.8/plugins/page.php?adapt_container_width=true&amp;app_id=355627444798303&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2F0F7S7QWJ0Ac.js%3Fversion%3D42%23cb%3Df2f6495a081f87%26domain%3Dtraphamex.com%26origin%3Dhttp%253A%252F%252Ftraphamex.com%252Ff2b8a81b724525%26relation%3Dparent.parent&amp;container_width=240&amp;height=250&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2F115376195648287%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;small_header=true&amp;tabs=messages" style="border: none; visibility: visible; width: 240px; height: 250px;" class=""></iframe></span></div></div>
+                </div>
+            </div><!-- end row -->
+        </div><!-- footer 1 -->
+        
+        
+       </footer>
+
+
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                controlNav: false,               // 1,2,3... navigation
+                nextText: '',
+                prevText:''
+            });
+        });
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,3 @@
+C:\Users\Administrator\Desktop\WEB\WebBanSach\WebBanSach\obj\Debug\WebSiteBanSach.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\WEB\WebBanSach\WebBanSach\obj\Debug\WebBanSach.dll
+C:\Users\Administrator\Desktop\WEB\WebBanSach\WebBanSach\obj\Debug\WebBanSach.pdb

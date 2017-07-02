@@ -1,0 +1,43 @@
+﻿@using WebBanSach.Models;
+@model Sach
+@{
+    ViewBag.Title = "XemChiTiet";
+    Layout = "~/Views/Layout/LayoutHome.cshtml";
+}
+
+<style>
+  .Slide1{
+        display:none;
+    }
+    .UuDai{
+        display:none;
+    }
+    .KhuyenKhich{
+        display:none;
+    }
+</style>
+
+    <div class="HinhChiTietSach">
+        <img src="@Url.Content("~/HinhAnhSP/"+Model.AnhBia)" />
+    </div>
+    @*Thông tin*@
+    <div class="ThongTinChiTiet jumbotron">
+        <div class="TenSach">@Model.TenSach</div>
+        <b class="">Chủ đề: </b> <span>@ViewBag.TenChuDe </span><br />
+        <b class="">Nhà xuất bản: </b><span> @ViewBag.NhaXuatBan</span><br />
+        @*Dịch dấu chấm động đơn giá sử dụng string.Format("{0:0,0}", tham số)*@
+        <b >Đơn giá:</b> <br /><span id="Gia"> @string.Format("{0:0,0}", @Model.GiaBan) VNĐ</span>
+        <br />
+        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = Model.MaSach, @strURL = Request.Url.ToString() }))
+        {
+            <button type="submit" class="btn btn-info" style="width:63%;">Đặt Hàng</button>
+        }
+    </div>
+
+    <div class="ThongTinNoiDung jumbotron" style="clear:both">
+
+        Nội dung tóm tắt:<br />- @Model.MoTa <br />
+    </div>
+    <div style="clear:both"></div>
+
+

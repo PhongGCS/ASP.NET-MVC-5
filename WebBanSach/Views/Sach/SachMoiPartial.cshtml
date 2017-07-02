@@ -1,0 +1,50 @@
+﻿
+
+@using WebBanSach.Models;
+@*Định nghĩa kiểu dữ liệu cho biến Model*@
+@model List<Sach>
+
+
+<div class="carousel">
+    <div class="c_header">
+
+        <h2>Sách Mới Nhất</h2>
+
+    </div><!-- .c_header -->
+
+    <div class="list_carousel">
+
+        <div class="caroufredsel_wrapper">
+            <ul id="list_product" class="list_product">
+
+
+
+                @{
+                    foreach (var item in Model)
+                    {
+                        <li class="item-product">
+                            <div class="product">
+                                <img class="sale" src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" alt="Sale">
+                                <div class="prev">
+                                    <a href="@Url.Action("XemChiTiet", new { @masach=item.MaSach })" alt="" title=""></a>
+                                </div><!-- .prev -->
+                                <h3 class="title">@item.TenSach">Tiêu đề: @item.TenSach</h3>
+                                <div class="cart">
+                                    <div class="price">
+                                        <div class="vert">
+                                            <div class="price_new">550000 VNĐ</div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-info" style="width:63%;">Đặt Hàng</button>
+
+                                </div><!-- .cart -->
+                            </div><!-- .grid_3 -->
+                        </li>
+
+                    }
+                }
+
+            </ul>
+        </div><!-- #list_product -->
+    </div><!-- .list_carousel -->
+</div>

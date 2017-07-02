@@ -1,0 +1,67 @@
+﻿@using WebBanSach.Models;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Sach>
+
+
+@{
+    Layout = "~/Views/Layout/LayoutHome.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<div class="carousel">
+    <div class="c_header">
+
+        <h2>Sách Mới Nhất</h2>
+
+    </div><!-- .c_header -->
+
+    <div class="list_carousel">
+
+        <div class="caroufredsel_wrapper">
+            <ul id="list_product" class="list_product">
+
+
+
+                @foreach (var item in Model)
+                {
+                    <li class="item-product">
+                        <div class="product">
+                            <img class="sale" src="../HinhAnh/top.png" alt="Sale">
+                            <div class="prev">
+                                <a href="@Url.Action("XemChiTiet","Sach", new { @masach=item.MaSach })"><img src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" alt="" title=""></a>
+                            </div><!-- .prev -->
+                            <h3 class="title">
+                                @if (item.TenSach.Length < 35)
+                                {
+                                    <span>@item.TenSach</span>
+                                }
+                                else
+                                {
+                                    <span>@item.TenSach.Substring(0, 35) ...</span>
+                                }
+
+                            </h3>
+                            <div class="cart">
+                                <div class="price">
+                                    <div class="vert">
+                                        <div class="price_new">@item.GiaBan VNĐ</div>
+                                    </div>
+                                </div>
+
+                                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = item.MaSach, @strURL = Request.Url.ToString() }))
+                                {
+                                    <button type="submit" class="btn btn-info" style="width:63%;">Đặt Hàng</button>
+                                }
+                               
+
+                            </div><!-- .cart -->
+                        </div><!-- .grid_3 -->
+                    </li>
+                }
+
+            </ul>
+        </div><!-- #list_product -->
+    </div><!-- .list_carousel -->
+</div>
+
+               <!----/Main-Product----->

@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Layout/LayoutHome.cshtml";
+}
+<style>
+    .Slide1, .UuDai, .KhuyenKhich {
+        display: none;
+    }
+</style>
+<div class="container">
+
+    <!-- slider -->
+    <div class="row carousel-holder">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">Đăng nhập tài khoản</div>
+                <div class="panel-body">
+                    @using (Html.BeginForm())
+                    {
+                        if (ViewBag.ThongBao != null)
+                        {
+                            <div class="alert alert-danger">
+                                <strong>Thông Báo: !@ViewBag.ThongBao</strong>
+                            </div>
+                        }
+                        
+                        <div>
+                            <label>Tài Khoản</label>
+                            <input type="text" class="form-control" placeholder="Nhập tài khoản......" name="txtTaiKhoan" aria-describedby="basic-addon1">
+                        </div>
+                        <br>
+                        <div>
+                            <label>Nhập mật khẩu</label>
+                            <input type="password" class="form-control" name="txtMatKhau" aria-describedby="basic-addon1">
+                        </div>
+                        <br>
+                        
+
+                        <input type="submit" name="btnSubmit" class="btn btn-success" value="Đăng nhập"/>
+                                                   
+
+
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+    <!-- end slide -->
+</div>

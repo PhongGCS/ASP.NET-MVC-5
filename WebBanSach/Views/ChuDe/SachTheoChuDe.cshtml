@@ -1,0 +1,73 @@
+﻿@using WebBanSach.Models
+@model List<Sach>
+@*Css cho trang chủ ở trong thư mục content*@
+@{
+    ViewBag.Title = "Sách theo chủ đề";
+    Layout = "~/Views/Layout/LayoutHome.cshtml";
+}
+
+<style>
+    .Slide1{
+        display:none;
+    }
+    .UuDai{
+        display:none;
+    }
+    .KhuyenKhich{
+        display:none;
+    }
+</style>
+
+
+<div class="carousel">
+    <div class="c_header">
+
+        <h2>Chủ đề: @ViewBag.nameChuDe</h2>
+
+    </div><!-- .c_header -->
+
+    <div class="list_carousel">
+
+        <div class="caroufredsel_wrapper">
+            <ul id="list_product" class="list_product">
+
+
+
+                @foreach (var item in Model)
+                {
+
+                    <li class="item-product">
+                        <div class="product">
+                            <img class="sale" src="../HinhAnh/top.png" alt="Sale">
+                            <div class="prev">
+                                <a href="@Url.Action("XemChiTiet", new { @masach=item.MaSach })"><img src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" alt="" title=""></a>
+                            </div><!-- .prev -->
+                            <h3 class="title">
+                                @if (item.TenSach.Length < 35)
+                {
+                                    <span>@item.TenSach</span>
+                                }
+                                else
+                                {
+                                    <span>@item.TenSach.Substring(0, 35) ...</span>
+                                }
+
+                            </h3>
+                            <div class="cart">
+                                <div class="price">
+                                    <div class="vert">
+                                        <div class="price_new">@item.GiaBan VNĐ</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-info" style="width:63%;">Đặt Hàng</button>
+
+                            </div><!-- .cart -->
+                        </div><!-- .grid_3 -->
+                    </li>
+
+                }
+
+            </ul>
+        </div><!-- #list_product -->
+    </div><!-- .list_carousel -->
+    </div>
